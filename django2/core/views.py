@@ -5,9 +5,32 @@ from django.shortcuts import redirect
 from .forms import ContatoForm, ProdutoModelForm
 from .models import Produto
 
-def index(request):
-    return render(request, 'index.html')
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('produto')
+        else:
+            # Se o login falhar, você pode adicionar uma mensagem de erro
+            messages.error(request, 'Credenciais inválidas. Por favor, tente novamente.')
+            return redirect('login')
+    return render(request, 'login.html')
+
+def index(request):
+    # Sua lógica para renderizar a página inicial
+    return render(request, 'index.html')
 
 def listaProdutos(request):
     context = {
@@ -53,3 +76,8 @@ def produto(request):
         return render(request, 'produto.html', context)
     else:
         return redirect('listaProdutos')
+
+def serviços(request):
+    return render(request, 'serviços.html')
+
+
