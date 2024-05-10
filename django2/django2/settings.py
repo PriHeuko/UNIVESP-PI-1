@@ -142,3 +142,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ### EMAIL_PORT = 587 conexão segura normalmente é 587, seu host va informa quais são os dados
 ### EMAIL_USER_TSL = True se vai usar criptografia ou não
 ### EMAIL_HOST_PASSWORD = 'sua senha' qual a senha do e-mail do reply
+

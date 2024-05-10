@@ -1,4 +1,4 @@
-Formulário de cadastro de produtos que o Grupo 20 desenvolveu para a disciplina de Desenvolvimento PI I.
+Formulário de cadastro
 
 ao enviar o formulário ele deve retornar um email para o dono do site.
 
