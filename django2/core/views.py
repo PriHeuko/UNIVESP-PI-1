@@ -57,7 +57,7 @@ def contato(request):
 
 
 def produto(request):
-    if str(request.user) != 'AnonymousUser':
+    if str(request.user) == 'AnonymousUser':
         if str(request.method) == 'POST':
             form = ProdutoModelForm(request.POST, request.FILES)
             if form.is_valid():
